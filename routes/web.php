@@ -6,7 +6,6 @@ use App\Http\Controllers\FeedbackController;
 
 Auth::routes();
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
-Route::get('/feedback', [FeedbackController::class, 'view'])->name('feedback.view');
+Route::get('/', [FeedbackController::class, 'index'])->name('feedback.index');
+Route::get('/feedback', [FeedbackController::class, 'new'])->name('feedback.new');
 Route::post('/feedback', [FeedbackController::class, 'create'])->name('feedback.create');

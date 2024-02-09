@@ -8,9 +8,15 @@ use Illuminate\Support\Facades\Auth;
 
 class FeedbackController extends Controller
 {
-    public function view()
+    public function index()
     {
-        return view('feedback');
+        $feedback = Feedback::with('user')->paginate(2);
+        return view('feedback.index', compact('feedback'));
+    }
+
+    public function new()
+    {
+        return view('feedback.new');
     }
 
     public function create(Request $request)
