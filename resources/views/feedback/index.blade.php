@@ -17,18 +17,24 @@
             <div class="card">
                 <div class="card-header">{{ __('Listing') }}</div>
 
-                <div class="card-body">
-                    @foreach ($feedback as $item)
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ $item->title }}</h5>
-                                <p class="card-text"><strong>Category:</strong> {{ ucfirst($item->category) }}</p>
-                                <p class="card-text"><strong>User:</strong> {{ $item->user->name }}</p>
+                @if ($feedback->isEmpty())
+                    <div class="alert alert-info">
+                        No feedback items found.
+                    </div>
+                @else
+                    <div class="card-body">
+                        @foreach ($feedback as $item)
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <h4 class="card-title">{{ $item->title }}</h4>
+                                    <p class="card-text"><strong>Category:</strong> {{ ucfirst($item->category) }}</p>
+                                    <p class="card-text"><strong>User:</strong> {{ $item->user->name }}</p>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
-                    {{ $feedback->links() }}
-                </div>
+                        @endforeach
+                        {{ $feedback->links() }}
+                    </div>
+                @endif
             </div>
         </div>
     </div>
