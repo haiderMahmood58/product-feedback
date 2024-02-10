@@ -69,18 +69,24 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @foreach($item->comments as $comment)
-                    <div class="card mb-3">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-2">
-                                <img src="{{ asset('images/user-icon.png') }}" alt="User Icon" class="rounded-circle me-2 user-image" >
-                                <h5 class="card-title user-name">{{ $comment->user->name }}</h5>
-                            </div>
-                            <p class="card-text">{{ $comment->content }}</p>
-                            <p class="card-text"><small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small></p>
-                        </div>
+                @if ($item->comments->isEmpty())
+                    <div class="alert alert-info">
+                        No comment found.
                     </div>
-                @endforeach
+                @else
+                    @foreach($item->comments as $comment)
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-2">
+                                    <img src="{{ asset('images/user-icon.png') }}" alt="User Icon" class="rounded-circle me-2 user-image" >
+                                    <h5 class="card-title user-name">{{ $comment->user->name }}</h5>
+                                </div>
+                                <p class="card-text">{{ $comment->content }}</p>
+                                <p class="card-text"><small class="text-muted">{{ $comment->created_at->diffForHumans() }}</small></p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -89,5 +95,4 @@
     </div>
 </div>
 @endforeach
-
 @endsection
