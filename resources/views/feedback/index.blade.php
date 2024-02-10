@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div>
-                <a href="{{ route('feedback.new') }}" class="btn btn-success btn-lg mb-3">Submit Feedback</a>
+                <a href="{{ route('feedback.new') }}" class="btn btn-success btn-lg mb-3">Add Feedback</a>
             </div>
 
             @if (session('success'))

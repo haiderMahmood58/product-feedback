@@ -4,6 +4,10 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <div>
+                <a href="{{ route('feedback.index') }}" class="btn btn-primary btn-lg mb-3">Back</a>
+            </div>
+
             @if (session('error'))
                 <div class="alert alert-danger">
                     {{ session('error') }}
