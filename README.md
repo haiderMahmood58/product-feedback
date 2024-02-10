@@ -26,6 +26,7 @@ Users can mention other users in comments using the "@" symbol (bonus feature).
 
 ## Technologies Used
 Laravel 10
+PHP 8.2.12
 MySQL
 Vite (optional if implementing frontend)
 
