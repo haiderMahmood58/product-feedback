@@ -30,6 +30,7 @@ class FeedbackController extends Controller
         }
 
         $validatedData['user_id'] = $userId;
+        
         if (Feedback::create($validatedData)) {
             return redirect()->route('feedback.index')->with('success', 'Thank you for your feedback!');
         } else {
