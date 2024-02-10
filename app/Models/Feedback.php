@@ -14,13 +14,15 @@ class Feedback extends Model
 
     public static $categories = ['bug', 'feature', 'improvement', 'other'];
 
-    public function user()
-    {
+    public function user() {
         return $this->belongsTo(User::class);
     }
 
-    protected static function boot()
-    {
+    public function comments() {
+        return $this->hasMany(Comment::class);
+    }
+
+    protected static function boot() {
         parent::boot();
 
         static::creating(function ($feedback) {
